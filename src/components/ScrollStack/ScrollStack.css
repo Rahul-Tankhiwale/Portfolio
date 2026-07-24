@@ -1,0 +1,286 @@
+.scroll-stack-scroller {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: visible;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: scroll-position;
+}
+
+.scroll-stack-inner {
+  padding: 20vh 5rem 50rem;
+  min-height: 100vh;
+}
+
+.scroll-stack-card-wrapper {
+  position: relative;
+}
+
+.scroll-stack-card {
+  transform-origin: top center;
+  will-change: transform, filter;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  height: 20rem;
+  width: 100%;
+  margin: 30px 0;
+  padding: 3rem;
+  border-radius: 40px;
+  box-sizing: border-box;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.scroll-stack-card:hover {
+  box-shadow: 0 8px 40px rgba(108, 99, 255, 0.15);
+}
+
+.scroll-stack-end {
+  width: 100%;
+  height: 1px;
+}
+
+/* ---------- Responsive ---------- */
+
+/* TV (1921px+) */
+@media (min-width: 1921px) {
+  .scroll-stack-inner {
+    padding: 25vh 8rem 60rem;
+  }
+  
+  .scroll-stack-card {
+    height: 28rem;
+    margin: 40px 0;
+    padding: 4rem;
+    border-radius: 50px;
+  }
+}
+
+/* Large Desktop (1201px - 1920px) */
+@media (min-width: 1201px) and (max-width: 1920px) {
+  .scroll-stack-inner {
+    padding: 22vh 6rem 55rem;
+  }
+  
+  .scroll-stack-card {
+    height: 22rem;
+    padding: 3.5rem;
+    border-radius: 45px;
+  }
+}
+
+/* Desktop (1025px - 1200px) */
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .scroll-stack-inner {
+    padding: 20vh 4rem 45rem;
+  }
+  
+  .scroll-stack-card {
+    height: 18rem;
+    padding: 2.5rem;
+    border-radius: 35px;
+    margin: 25px 0;
+  }
+}
+
+/* Tablet (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .scroll-stack-inner {
+    padding: 15vh 3rem 35rem;
+    min-height: 80vh;
+  }
+  
+  .scroll-stack-scroller {
+    height: 80vh;
+  }
+  
+  .scroll-stack-card {
+    height: 16rem;
+    padding: 2rem;
+    border-radius: 30px;
+    margin: 20px 0;
+  }
+  
+  .scroll-stack-card h3 {
+    font-size: 1.4rem;
+  }
+  
+  .scroll-stack-card p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .scroll-stack-inner {
+    padding: 12vh 2rem 25rem;
+    min-height: 70vh;
+  }
+  
+  .scroll-stack-scroller {
+    height: 75vh;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .scroll-stack-card {
+    height: 14rem;
+    padding: 1.5rem;
+    border-radius: 25px;
+    margin: 15px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  .scroll-stack-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+  }
+  
+  .scroll-stack-card p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  
+  .scroll-stack-end {
+    height: 2px;
+  }
+}
+
+/* Small Mobile (320px - 480px) */
+@media (max-width: 480px) {
+  .scroll-stack-inner {
+    padding: 8vh 1rem 15rem;
+    min-height: 60vh;
+  }
+  
+  .scroll-stack-scroller {
+    height: 65vh;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .scroll-stack-card {
+    height: 12rem;
+    padding: 1rem;
+    border-radius: 20px;
+    margin: 12px 0;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+  }
+  
+  .scroll-stack-card h3 {
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+  
+  .scroll-stack-card p {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+  
+  .scroll-stack-card-wrapper {
+    margin: 0;
+  }
+  
+  .scroll-stack-end {
+    height: 2px;
+  }
+}
+
+/* Landscape Mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+  .scroll-stack-inner {
+    padding: 5vh 2rem 20rem;
+    min-height: 50vh;
+  }
+  
+  .scroll-stack-scroller {
+    height: 60vh;
+  }
+  
+  .scroll-stack-card {
+    height: 10rem;
+    padding: 1rem;
+    border-radius: 20px;
+    margin: 10px 0;
+  }
+  
+  .scroll-stack-card h3 {
+    font-size: 1rem;
+  }
+  
+  .scroll-stack-card p {
+    font-size: 0.75rem;
+  }
+}
+
+/* High DPI / Retina screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .scroll-stack-card {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .scroll-stack-card {
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .scroll-stack-card:hover {
+    box-shadow: 0 8px 40px rgba(108, 99, 255, 0.2);
+  }
+}
+
+/* Reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-stack-scroller {
+    scroll-behavior: auto;
+  }
+  
+  .scroll-stack-card {
+    transition: none;
+  }
+}
+
+/* Touch devices - improved scrolling */
+@media (hover: none) and (pointer: coarse) {
+  .scroll-stack-scroller {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+  
+  .scroll-stack-card {
+    transition: transform 0.2s ease;
+  }
+}
+
+/* Print styles */
+@media print {
+  .scroll-stack-scroller {
+    height: auto;
+    overflow: visible;
+  }
+  
+  .scroll-stack-inner {
+    padding: 20px;
+    min-height: auto;
+  }
+  
+  .scroll-stack-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #ddd;
+    margin: 10px 0;
+    height: auto;
+    min-height: 100px;
+  }
+}
