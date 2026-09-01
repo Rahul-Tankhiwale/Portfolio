@@ -10,6 +10,7 @@
   --social-bg: rgba(244, 243, 236, 0.5);
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  --card-bg: #ffffff;
 
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
@@ -39,6 +40,7 @@
     --social-bg: rgba(47, 48, 58, 0.5);
     --shadow:
       rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+    --card-bg: #1f2028;
   }
 
   #social .button-icon {
@@ -197,20 +199,17 @@ code {
     max-width: 100%;
   }
 
-  /* Grid adjustments */
   .skills-grid,
   .projects-grid {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 20px !important;
   }
 
-  /* Contact form adjustments */
   .contact-grid {
     grid-template-columns: 1fr !important;
     gap: 30px !important;
   }
 
-  /* Hero adjustments */
   .hero-content {
     padding: 40px 20px !important;
   }
@@ -219,15 +218,15 @@ code {
     font-size: 2.5rem !important;
   }
 
-  /* ScrollStack adjustments */
   .scroll-stack-inner {
     padding: 10vh 2rem 30rem !important;
   }
 
   .scroll-stack-card {
-    height: 16rem !important;
+    min-height: 240px !important;
+    max-height: 340px !important;
     padding: 2rem !important;
-    border-radius: 30px !important;
+    border-radius: 25px !important;
   }
 }
 
@@ -263,14 +262,12 @@ code {
     padding: 0 10px;
   }
 
-  /* Grid layouts */
   .skills-grid,
   .projects-grid {
     grid-template-columns: 1fr !important;
     gap: 16px !important;
   }
 
-  /* Contact form */
   .contact-grid {
     grid-template-columns: 1fr !important;
     gap: 24px !important;
@@ -290,7 +287,6 @@ code {
     font-size: 16px !important;
   }
 
-  /* Hero section */
   .hero-content {
     padding: 30px 10px !important;
   }
@@ -324,7 +320,6 @@ code {
     gap: 16px !important;
   }
 
-  /* Theme toggle */
   .theme-toggle {
     width: 40px !important;
     height: 40px !important;
@@ -333,9 +328,8 @@ code {
     right: 10px !important;
   }
 
-  /* ScrollStack */
   .scroll-stack-inner {
-    padding: 8vh 1rem 20rem !important;
+    padding: 6vh 1.5rem 20rem !important;
   }
 
   .scroll-stack-scroller {
@@ -343,17 +337,17 @@ code {
   }
 
   .scroll-stack-card {
-    height: 14rem !important;
+    min-height: 200px !important;
+    max-height: 300px !important;
     padding: 1.5rem !important;
-    border-radius: 24px !important;
-    margin: 15px 0 !important;
+    border-radius: 20px !important;
+    margin: 14px 0 !important;
   }
 
   .scroll-stack-card h3 {
-    font-size: 1.2rem !important;
+    font-size: 1.1rem !important;
   }
 
-  /* Skills */
   .skill-card {
     padding: 16px !important;
     gap: 12px !important;
@@ -369,7 +363,6 @@ code {
     font-size: 0.95rem !important;
   }
 
-  /* Projects */
   .project-card {
     padding: 20px !important;
   }
@@ -387,7 +380,6 @@ code {
     padding: 3px 10px !important;
   }
 
-  /* Education */
   .education-card {
     padding: 24px !important;
     min-height: 200px !important;
@@ -407,7 +399,6 @@ code {
     font-size: 0.95rem !important;
   }
 
-  /* Stats cards */
   .stats-grid {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 12px !important;
@@ -421,7 +412,6 @@ code {
     font-size: 1.5rem !important;
   }
 
-  /* Buttons */
   .btn-primary,
   .btn-secondary {
     padding: 12px 24px !important;
@@ -429,14 +419,12 @@ code {
     width: 100% !important;
   }
 
-  /* Form inputs */
   input,
   textarea {
     font-size: 15px !important;
     padding: 12px 16px !important;
   }
 
-  /* Visitor counter */
   .visitor-counter {
     padding: 6px 12px !important;
     font-size: 12px !important;
@@ -484,14 +472,12 @@ code {
     padding: 0 5px;
   }
 
-  /* Grids - single column */
   .skills-grid,
   .projects-grid {
     grid-template-columns: 1fr !important;
     gap: 12px !important;
   }
 
-  /* Contact - single column */
   .contact-grid {
     grid-template-columns: 1fr !important;
     gap: 20px !important;
@@ -519,7 +505,6 @@ code {
     font-size: 0.75rem !important;
   }
 
-  /* Hero */
   .hero-content {
     padding: 20px 5px !important;
   }
@@ -571,7 +556,6 @@ code {
     font-size: 20px !important;
   }
 
-  /* Theme toggle */
   .theme-toggle {
     width: 36px !important;
     height: 36px !important;
@@ -580,9 +564,8 @@ code {
     right: 8px !important;
   }
 
-  /* ScrollStack */
   .scroll-stack-inner {
-    padding: 5vh 0.5rem 15rem !important;
+    padding: 4vh 1rem 15rem !important;
   }
 
   .scroll-stack-scroller {
@@ -590,9 +573,10 @@ code {
   }
 
   .scroll-stack-card {
-    height: 12rem !important;
-    padding: 1rem !important;
-    border-radius: 20px !important;
+    min-height: 180px !important;
+    max-height: 260px !important;
+    padding: 1.2rem !important;
+    border-radius: 16px !important;
     margin: 10px 0 !important;
   }
 
@@ -601,10 +585,9 @@ code {
   }
 
   .scroll-stack-card p {
-    font-size: 0.8rem !important;
+    font-size: 0.85rem !important;
   }
 
-  /* Skills */
   .skill-card {
     padding: 12px !important;
     gap: 10px !important;
@@ -631,7 +614,6 @@ code {
     font-size: 0.75rem !important;
   }
 
-  /* Projects */
   .project-card {
     padding: 16px !important;
     border-radius: 18px !important;
@@ -669,7 +651,6 @@ code {
     font-size: 0.8rem !important;
   }
 
-  /* Education */
   .education-card {
     padding: 20px !important;
     min-height: 180px !important;
@@ -699,7 +680,6 @@ code {
     font-size: 0.75rem !important;
   }
 
-  /* Stats */
   .stats-grid {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 8px !important;
@@ -723,7 +703,6 @@ code {
     font-size: 0.7rem !important;
   }
 
-  /* Buttons */
   .btn-primary,
   .btn-secondary {
     padding: 10px 16px !important;
@@ -732,7 +711,6 @@ code {
     width: 100% !important;
   }
 
-  /* Forms */
   input,
   textarea {
     font-size: 14px !important;
@@ -744,7 +722,6 @@ code {
     min-height: 80px !important;
   }
 
-  /* Category filters */
   .category-filters {
     gap: 8px !important;
     margin-bottom: 20px !important;
@@ -755,7 +732,6 @@ code {
     font-size: 12px !important;
   }
 
-  /* Visitor counter */
   .visitor-counter {
     padding: 4px 10px !important;
     font-size: 11px !important;
@@ -777,7 +753,6 @@ code {
     font-size: 7px !important;
   }
 
-  /* Social links in contact */
   .contact-social {
     gap: 12px !important;
   }
@@ -786,7 +761,6 @@ code {
     font-size: 18px !important;
   }
 
-  /* Section titles */
   .section-title {
     font-size: 1.8rem !important;
   }
@@ -796,7 +770,6 @@ code {
     margin-bottom: 24px !important;
   }
 
-  /* Quick stats in education */
   .education-stats {
     gap: 8px !important;
   }
@@ -827,12 +800,23 @@ code {
   }
 
   .scroll-stack-inner {
-    padding: 5vh 2rem 20rem !important;
+    padding: 3vh 2rem 15rem !important;
   }
 
   .scroll-stack-card {
-    height: 10rem !important;
+    min-height: 160px !important;
+    max-height: 220px !important;
     padding: 1rem !important;
+    border-radius: 16px !important;
+    margin: 8px 0 !important;
+  }
+
+  .scroll-stack-card h3 {
+    font-size: 0.95rem !important;
+  }
+
+  .scroll-stack-card p {
+    font-size: 0.8rem !important;
   }
 
   .skills-grid,
