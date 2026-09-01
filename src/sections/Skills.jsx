@@ -3,9 +3,7 @@ import {
   FaReact,
   FaNodeJs,
   FaDocker,
-  FaAws,
   FaGitAlt,
-  FaDatabase,
   FaServer,
   FaCss3Alt,
   FaHtml5,
@@ -20,13 +18,9 @@ import {
   SiMysql,
   SiPostman,
   SiJest,
-  SiVite,
   SiNextdotjs,
-  SiGitlab,
   SiTailwindcss,
   SiTypescript,
-  SiGraphql,
-  SiRedux,
   SiFirebase
 } from 'react-icons/si';
 import { motion, AnimatePresence } from 'motion/react';
@@ -36,87 +30,63 @@ const skillsData = {
     {
       icon: <SiJavascript size={32} />,
       name: 'JavaScript',
-      level: 'Expert',
       color: '#F7DF1E'
     },
     {
       icon: <SiTypescript size={32} />,
       name: 'TypeScript',
-      level: 'Advanced',
       color: '#3178C6'
     },
     {
       icon: <FaReact size={32} />,
       name: 'React.js',
-      level: 'Expert',
       color: '#61DAFB'
     },
     {
       icon: <SiNextdotjs size={32} />,
       name: 'Next.js',
-      level: 'Intermediate',
       color: '#000000'
     },
     {
       icon: <FaHtml5 size={32} />,
       name: 'HTML5',
-      level: 'Expert',
       color: '#E34F26'
     },
     {
       icon: <FaCss3Alt size={32} />,
       name: 'CSS3',
-      level: 'Expert',
       color: '#1572B6'
     },
     {
       icon: <SiTailwindcss size={32} />,
       name: 'Tailwind CSS',
-      level: 'Advanced',
       color: '#06B6D4'
-    },
-    {
-      icon: <SiVite size={32} />,
-      name: 'Vite',
-      level: 'Advanced',
-      color: '#646CFF'
     }
   ],
   'Backend': [
     {
       icon: <FaNodeJs size={32} />,
       name: 'Node.js',
-      level: 'Advanced',
       color: '#339933'
     },
     {
       icon: <SiExpress size={32} />,
       name: 'Express.js',
-      level: 'Advanced',
       color: '#000000'
     },
     {
       icon: <SiMongodb size={32} />,
       name: 'MongoDB',
-      level: 'Intermediate',
       color: '#47A248'
     },
     {
       icon: <SiMysql size={32} />,
       name: 'MySQL',
-      level: 'Intermediate',
       color: '#4479A1'
-    },
-    {
-      icon: <FaDatabase size={32} />,
-      name: 'Database Design',
-      level: 'Intermediate',
-      color: '#FF6B6B'
     },
     {
       icon: <FaServer size={32} />,
       name: 'REST APIs',
-      level: 'Advanced',
       color: '#00B4D8'
     }
   ],
@@ -124,45 +94,23 @@ const skillsData = {
     {
       icon: <FaDocker size={32} />,
       name: 'Docker',
-      level: 'Intermediate',
       color: '#2496ED'
-    },
-    {
-      icon: <FaAws size={32} />,
-      name: 'AWS',
-      level: 'Intermediate',
-      color: '#FF9900'
-    },
-    {
-      icon: <FaGitAlt size={32} />,
-      name: 'Git',
-      level: 'Advanced',
-      color: '#F05032'
-    },
-    {
-      icon: <SiGitlab size={32} />,
-      name: 'GitLab',
-      level: 'Intermediate',
-      color: '#FC6D26'
     }
   ],
   'Testing & Tools': [
     {
       icon: <SiPostman size={32} />,
       name: 'Postman',
-      level: 'Advanced',
       color: '#FF6C37'
     },
     {
       icon: <SiJest size={32} />,
       name: 'Jest',
-      level: 'Intermediate',
       color: '#C21325'
     },
     {
       icon: <FaTools size={32} />,
-      name: 'CI/CD',
-      level: 'Intermediate',
+      name: 'Tools',
       color: '#6C63FF'
     }
   ]
@@ -317,22 +265,10 @@ const Skills = ({ theme }) => {
                     fontSize: '1rem',
                     fontWeight: '700',
                     color: 'var(--text-primary)',
-                    marginBottom: '4px'
+                    marginBottom: 0
                   }}>
                     {skill.name}
                   </h3>
-                  <div style={{
-                    display: 'inline-block',
-                    padding: '2px 12px',
-                    borderRadius: '12px',
-                    fontSize: '0.7rem',
-                    fontWeight: '600',
-                    background: `${skill.color}20`,
-                    color: skill.color,
-                    border: `1px solid ${skill.color}30`
-                  }}>
-                    {skill.level}
-                  </div>
                 </div>
               </motion.div>
             ))}
