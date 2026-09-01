@@ -133,10 +133,10 @@ const Contact = ({ theme }) => {
           >
             {/* Contact Items */}
             {[
-              { icon: <FaUser />, label: 'Name', value: 'Rahul Tankhiwale' },
-              { icon: <FaEnvelope />, label: 'Email', value: 'rahultankhiwale14@gmail.com' },
-              { icon: <FaPhone />, label: 'Phone', value: '+91-7875398831' },
-              { icon: <FaComment />, label: 'Message', value: "I'll respond within 24 hours" }
+              { icon: <FaUser />, label: 'Name', value: '' },
+              { icon: <FaEnvelope />, label: 'Email', value: '' },
+              { icon: <FaPhone />, label: 'Phone', value: '' },
+              { icon: <FaComment />, label: 'Message', value: "" }
             ].map((item, index) => (
               <motion.div
                 key={index}
