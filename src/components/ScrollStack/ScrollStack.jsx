@@ -9,15 +9,15 @@ export const ScrollStackItem = ({ children, itemClassName = '' }) => (
 const ScrollStack = ({
   children,
   className = '',
-  itemDistance = 80,
-  itemScale = 0.02,
-  itemStackDistance = 20,
-  stackPosition = '25%',
-  scaleEndPosition = '15%',
-  baseScale = 0.88,
+  itemDistance = 60,
+  itemScale = 0.015,
+  itemStackDistance = 15,
+  stackPosition = '30%',
+  scaleEndPosition = '20%',
+  baseScale = 0.9,
   scaleDuration = 0.5,
-  rotationAmount = 0.3,
-  blurAmount = 1.5,
+  rotationAmount = 0.2,
+  blurAmount = 1,
   useWindowScroll = false,
   onStackComplete
 }) => {
@@ -270,7 +270,8 @@ const ScrollStack = ({
 
     setupLenis();
 
-    updateCardTransforms();
+    // Initial update after a small delay to ensure everything is rendered
+    setTimeout(updateCardTransforms, 100);
 
     return () => {
       if (animationFrameRef.current) {
