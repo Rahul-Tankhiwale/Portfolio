@@ -15,7 +15,6 @@ const Contact = ({ theme }) => {
   const [error, setError] = useState('');
   const [visitorCount, setVisitorCount] = useState(0);
 
-  // Get visitor count
   useEffect(() => {
     const getVisitorCount = () => {
       const stored = localStorage.getItem('visitorCount');
@@ -24,7 +23,6 @@ const Contact = ({ theme }) => {
     setVisitorCount(getVisitorCount());
   }, []);
 
-  // Replace with your SheetDB API URL
   const SHEETDB_API_URL = 'https://sheetdb.io/api/v1/z6dztgwobt6xu';
 
   const handleChange = (e) => {
@@ -83,18 +81,23 @@ const Contact = ({ theme }) => {
   return (
     <section id="contact" style={{
       minHeight: '100vh',
-      padding: '80px 40px',
-      background: theme === 'dark' ? 'rgba(10,10,10,0.8)' : 'rgba(245,245,245,0.8)',
-      backdropFilter: 'blur(10px)'
+      padding: '80px 20px',
+      background: theme === 'dark' ? 'var(--bg-primary)' : 'var(--bg-primary)',
+      width: '100%'
     }}>
-      <div className="container">
+      <div className="container" style={{
+        maxWidth: '1200px',
+        margin: '0 auto',
+        padding: '0 15px'
+      }}>
         <motion.div
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
+          style={{ textAlign: 'center', marginBottom: '30px' }}
         >
-          <h2 className="section-title" style={{ textAlign: 'center' }}>Get In Touch</h2>
-          <p className="section-subtitle" style={{ textAlign: 'center' }}>
+          <h2 className="section-title">Get In Touch</h2>
+          <p className="section-subtitle">
             Have a project in mind? Let's work together and create something amazing.
           </p>
         </motion.div>
@@ -102,8 +105,9 @@ const Contact = ({ theme }) => {
         <div style={{
           display: 'grid',
           gridTemplateColumns: '1fr 2fr',
-          gap: '50px',
-          marginTop: '50px'
+          gap: '40px',
+          marginTop: '30px',
+          width: '100%'
         }}>
           {/* Contact Info - Left Side */}
           <motion.div
@@ -113,216 +117,185 @@ const Contact = ({ theme }) => {
             style={{
               display: 'flex',
               flexDirection: 'column',
-              gap: '30px'
+              gap: '24px'
             }}
           >
-            {/* Name */}
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '16px'
-            }}>
-              <div style={{
-                width: '50px',
-                height: '50px',
-                borderRadius: '50%',
-                background: 'rgba(108, 99, 255, 0.1)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#6c63ff',
-                fontSize: '20px'
-              }}>
-                <FaUser />
-              </div>
-              <div>
-                <h4 style={{ color: 'var(--text-primary)', marginBottom: '4px' }}>Name</h4>
-                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}></p>
-              </div>
-            </div>
-
-            {/* Email */}
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '16px'
-            }}>
-              <div style={{
-                width: '50px',
-                height: '50px',
-                borderRadius: '50%',
-                background: 'rgba(108, 99, 255, 0.1)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#6c63ff',
-                fontSize: '20px'
-              }}>
-                <FaEnvelope />
-              </div>
-              <div>
-                <h4 style={{ color: 'var(--text-primary)', marginBottom: '4px' }}>Email</h4>
-                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}></p>
-              </div>
-            </div>
-
-            {/* Phone */}
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '16px'
-            }}>
-              <div style={{
-                width: '50px',
-                height: '50px',
-                borderRadius: '50%',
-                background: 'rgba(108, 99, 255, 0.1)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#6c63ff',
-                fontSize: '20px'
-              }}>
-                <FaPhone />
-              </div>
-              <div>
-                <h4 style={{ color: 'var(--text-primary)', marginBottom: '4px' }}>Phone</h4>
-                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>+91-XXXXX-XXXX</p>
-              </div>
-            </div>
-
-            {/* Message */}
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '16px'
-            }}>
-              <div style={{
-                width: '50px',
-                height: '50px',
-                borderRadius: '50%',
-                background: 'rgba(108, 99, 255, 0.1)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#6c63ff',
-                fontSize: '20px'
-              }}>
-                <FaComment />
-              </div>
-              <div>
-                <h4 style={{ color: 'var(--text-primary)', marginBottom: '4px' }}>Write Your Message</h4>
-                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>I'll respond within 24 hours</p>
-              </div>
-            </div>
-
-            {/* Social Links + Visitor Counter - Combined in one line */}
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-         
-              gap: '12px',
-              marginTop: '10px',
-              paddingTop: '20px',
-              borderTop: `1px solid ${theme === 'dark' ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)'}`
-            }}>
-              <div style={{
-                display: 'flex',
-                gap: '16px',
-                alignItems: 'center'
-              }}>
-                <motion.a 
-                  href="#" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  style={{ 
-                    color: 'var(--text-secondary)', 
-                    fontSize: '22px', 
-                    transition: 'color 0.3s' 
-                  }}
-                  whileHover={{ scale: 1.2, color: '#6c63ff' }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <FaGithub />
-                </motion.a>
-                <motion.a 
-                  href="https://github.com/rahul-tankhiwale" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  style={{ 
-                    color: 'var(--text-secondary)', 
-                    fontSize: '22px', 
-                    transition: 'color 0.3s' 
-                  }}
-                  whileHover={{ scale: 1.2, color: '#6c63ff' }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <FaLinkedin />
-                </motion.a>
-                <motion.a 
-                  href="https://www.linkedin.com/in/rahul-tankhiwale-5a91b9213"  
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  style={{ 
-                    color: 'var(--text-secondary)', 
-                    fontSize: '22px', 
-                    transition: 'color 0.3s' 
-                  }}
-                  whileHover={{ scale: 1.2, color: '#6c63ff' }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <FaTwitter />
-                </motion.a>
-              </div>
-
-              {/* Visitor Counter on the same line */}
+            {/* Contact Items */}
+            {[
+              { icon: <FaUser />, label: 'Name', value: 'Rahul Tankhiwale' },
+              { icon: <FaEnvelope />, label: 'Email', value: 'rahultankhiwale5@gmail.com' },
+              { icon: <FaPhone />, label: 'Phone', value: '+91-XXXXX-XXXX' },
+              { icon: <FaComment />, label: 'Message', value: "I'll respond within 24 hours" }
+            ].map((item, index) => (
               <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1, duration: 0.5 }}
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3 + index * 0.1 }}
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '6px',
-                  padding: '4px 12px',
-                  borderRadius: '20px',
-                  background: 'rgba(108, 99, 255, 0.08)',
-                  border: '1px solid rgba(108, 99, 255, 0.1)'
+                  gap: '16px',
+                  padding: '12px 16px',
+                  borderRadius: '16px',
+                  background: 'var(--card-bg)',
+                  border: '1px solid var(--border)',
+                  transition: 'all 0.3s ease'
+                }}
+                whileHover={{
+                  scale: 1.02,
+                  borderColor: 'var(--accent)',
+                  boxShadow: '0 4px 20px var(--accent-bg)'
                 }}
               >
-                <motion.div
-                  animate={{
-                    scale: [1, 1.1, 1],
-                    opacity: [1, 0.7, 1]
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    repeatType: "reverse"
-                  }}
-                  style={{
-                    width: '6px',
-                    height: '6px',
-                    borderRadius: '50%',
-                    background: '#6c63ff'
-                  }}
-                />
-                <FaUsers style={{ color: '#6c63ff', fontSize: '12px' }} />
-                <span style={{
-                  fontSize: '13px',
-                  fontWeight: '700',
-                  color: 'var(--text-primary)'
+                <div style={{
+                  width: '48px',
+                  height: '48px',
+                  minWidth: '48px',
+                  borderRadius: '50%',
+                  background: 'var(--accent-bg)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: 'var(--accent)',
+                  fontSize: '18px'
                 }}>
-                  {visitorCount.toLocaleString()}
-                </span>
-                <span style={{
-                  fontSize: '9px',
-                  color: 'var(--text-secondary)',
-                  opacity: 0.6
-                }}>
-                  visitors
-                </span>
+                  {item.icon}
+                </div>
+                <div style={{ textAlign: 'left', minWidth: 0 }}>
+                  <h4 style={{
+                    color: 'var(--text-h)',
+                    marginBottom: '2px',
+                    fontSize: '0.85rem',
+                    fontWeight: '600'
+                  }}>
+                    {item.label}
+                  </h4>
+                  <p style={{
+                    color: 'var(--text-secondary)',
+                    fontSize: '0.85rem',
+                    wordBreak: 'break-word'
+                  }}>
+                    {item.value}
+                  </p>
+                </div>
               </motion.div>
+            ))}
+
+            {/* Social Links + Visitor Counter */}
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '16px',
+              marginTop: '10px',
+              paddingTop: '20px',
+              borderTop: `1px solid var(--border)`
+            }}>
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                flexWrap: 'wrap',
+                gap: '12px'
+              }}>
+                <div style={{
+                  display: 'flex',
+                  gap: '14px',
+                  alignItems: 'center'
+                }}>
+                  <motion.a 
+                    href="https://github.com/rahul-tankhiwale" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    style={{ 
+                      color: 'var(--text-secondary)', 
+                      fontSize: '22px', 
+                      transition: 'color 0.3s' 
+                    }}
+                    whileHover={{ scale: 1.2, color: 'var(--accent)' }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    <FaGithub />
+                  </motion.a>
+                  <motion.a 
+                    href="https://www.linkedin.com/in/rahul-tankhiwale-5a91b9213"  
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    style={{ 
+                      color: 'var(--text-secondary)', 
+                      fontSize: '22px', 
+                      transition: 'color 0.3s' 
+                    }}
+                    whileHover={{ scale: 1.2, color: 'var(--accent)' }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    <FaLinkedin />
+                  </motion.a>
+                  <motion.a 
+                    href="#" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    style={{ 
+                      color: 'var(--text-secondary)', 
+                      fontSize: '22px', 
+                      transition: 'color 0.3s' 
+                    }}
+                    whileHover={{ scale: 1.2, color: 'var(--accent)' }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    <FaTwitter />
+                  </motion.a>
+                </div>
+
+                {/* Visitor Counter */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 1, duration: 0.5 }}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    padding: '4px 14px',
+                    borderRadius: '20px',
+                    background: 'var(--accent-bg)',
+                    border: '1px solid var(--accent-border)'
+                  }}
+                >
+                  <motion.div
+                    animate={{
+                      scale: [1, 1.1, 1],
+                      opacity: [1, 0.7, 1]
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      repeatType: "reverse"
+                    }}
+                    style={{
+                      width: '6px',
+                      height: '6px',
+                      borderRadius: '50%',
+                      background: 'var(--accent)'
+                    }}
+                  />
+                  <FaUsers style={{ color: 'var(--accent)', fontSize: '12px' }} />
+                  <span style={{
+                    fontSize: '13px',
+                    fontWeight: '700',
+                    color: 'var(--text-h)'
+                  }}>
+                    {visitorCount.toLocaleString()}
+                  </span>
+                  <span style={{
+                    fontSize: '9px',
+                    color: 'var(--text-secondary)',
+                    opacity: 0.6
+                  }}>
+                    visitors
+                  </span>
+                </motion.div>
+              </div>
             </div>
           </motion.div>
 
@@ -335,109 +308,53 @@ const Contact = ({ theme }) => {
             style={{
               display: 'flex',
               flexDirection: 'column',
-              gap: '20px'
+              gap: '16px'
             }}
           >
-            <div>
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Full Name *"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                style={{
-                  width: '100%',
-                  padding: '14px 20px',
-                  borderRadius: '12px',
-                  border: error && !formData.name ? '2px solid #ff6b6b' : '1px solid var(--card-border)',
-                  background: 'var(--bg-primary)',
-                  color: 'var(--text-primary)',
-                  fontSize: '16px',
-                  outline: 'none',
-                  transition: 'border-color 0.3s'
-                }}
-                onFocus={(e) => e.currentTarget.style.borderColor = '#6c63ff'}
-                onBlur={(e) => {
-                  if (!error) e.currentTarget.style.borderColor = 'var(--card-border)';
-                }}
-              />
-            </div>
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Full Name *"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              style={{
+                borderColor: error && !formData.name ? '#ff6b6b' : undefined
+              }}
+            />
             
-            <div>
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email Address *"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                style={{
-                  width: '100%',
-                  padding: '14px 20px',
-                  borderRadius: '12px',
-                  border: error && !formData.email ? '2px solid #ff6b6b' : '1px solid var(--card-border)',
-                  background: 'var(--bg-primary)',
-                  color: 'var(--text-primary)',
-                  fontSize: '16px',
-                  outline: 'none',
-                  transition: 'border-color 0.3s'
-                }}
-                onFocus={(e) => e.currentTarget.style.borderColor = '#6c63ff'}
-                onBlur={(e) => {
-                  if (!error) e.currentTarget.style.borderColor = 'var(--card-border)';
-                }}
-              />
-            </div>
-            <div>
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Your Phone Number (Optional)"
-                value={formData.phone}
-                onChange={handleChange}
-                style={{
-                  width: '100%',
-                  padding: '14px 20px',
-                  borderRadius: '12px',
-                  border: '1px solid var(--card-border)',
-                  background: 'var(--bg-primary)',
-                  color: 'var(--text-primary)',
-                  fontSize: '16px',
-                  outline: 'none',
-                  transition: 'border-color 0.3s'
-                }}
-                onFocus={(e) => e.currentTarget.style.borderColor = '#6c63ff'}
-                onBlur={(e) => e.currentTarget.style.borderColor = 'var(--card-border)'}
-              />
-            </div>
-            <div>
-              <textarea
-                name="message"
-                placeholder="Your Message *"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                rows="5"
-                style={{
-                  width: '100%',
-                  padding: '14px 20px',
-                  borderRadius: '12px',
-                  border: error && !formData.message ? '2px solid #ff6b6b' : '1px solid var(--card-border)',
-                  background: 'var(--bg-primary)',
-                  color: 'var(--text-primary)',
-                  fontSize: '16px',
-                  outline: 'none',
-                  resize: 'vertical',
-                  fontFamily: 'inherit',
-                  transition: 'border-color 0.3s'
-                }}
-                onFocus={(e) => e.currentTarget.style.borderColor = '#6c63ff'}
-                onBlur={(e) => {
-                  if (!error) e.currentTarget.style.borderColor = 'var(--card-border)';
-                }}
-              />
-            </div>
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email Address *"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              style={{
+                borderColor: error && !formData.email ? '#ff6b6b' : undefined
+              }}
+            />
+            
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Your Phone Number (Optional)"
+              value={formData.phone}
+              onChange={handleChange}
+            />
+            
+            <textarea
+              name="message"
+              placeholder="Your Message *"
+              value={formData.message}
+              onChange={handleChange}
+              required
+              rows="5"
+              style={{
+                borderColor: error && !formData.message ? '#ff6b6b' : undefined,
+                minHeight: '120px'
+              }}
+            />
 
             {/* Error Message */}
             <AnimatePresence>
@@ -452,7 +369,8 @@ const Contact = ({ theme }) => {
                     background: '#ff6b6b20',
                     border: '1px solid #ff6b6b',
                     color: '#ff6b6b',
-                    fontSize: '0.9rem'
+                    fontSize: '0.9rem',
+                    textAlign: 'center'
                   }}
                 >
                   {error}
@@ -466,12 +384,7 @@ const Contact = ({ theme }) => {
               disabled={isSubmitting}
               style={{
                 width: '100%',
-                opacity: isSubmitting ? 0.7 : 1,
-                cursor: isSubmitting ? 'not-allowed' : 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '10px'
+                position: 'relative'
               }}
             >
               {isSubmitting ? (
@@ -511,13 +424,6 @@ const Contact = ({ theme }) => {
           </motion.form>
         </div>
       </div>
-
-      <style>{`
-        @keyframes spin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-      `}</style>
     </section>
   );
 };
