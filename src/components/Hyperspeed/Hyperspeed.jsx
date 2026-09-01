@@ -41,11 +41,25 @@ const DEFAULT_EFFECT_OPTIONS = {
   }
 };
 
-const Hyperspeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }) => {
+const Hyperspeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS, isVisible = true }) => {
   const hyperspeed = useRef(null);
   const appRef = useRef(null);
 
   useEffect(() => {
+    if (!isVisible) {
+      if (appRef.current) {
+        appRef.current.dispose();
+        appRef.current = null;
+        const container = hyperspeed.current;
+        if (container) {
+          while (container.firstChild) {
+            container.removeChild(container.firstChild);
+          }
+        }
+      }
+      return;
+    }
+
     if (appRef.current) {
       appRef.current.dispose();
       appRef.current = null;
@@ -360,7 +374,7 @@ const Hyperspeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }) => {
           alpha: true
         });
         this.renderer.setSize(initW, initH, false);
-        this.renderer.setPixelRatio(window.devicePixelRatio);
+        this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         this.composer = new EffectComposer(this.renderer);
         container.append(this.renderer.domElement);
 
@@ -1174,7 +1188,7 @@ const Hyperspeed = ({ effectOptions = DEFAULT_EFFECT_OPTIONS }) => {
         appRef.current = null;
       }
     };
-  }, [effectOptions]);
+  }, [effectOptions, isVisible]);
 
   return <div id="lights" ref={hyperspeed}></div>;
 };
