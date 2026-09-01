@@ -10,15 +10,37 @@
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
   will-change: scroll-position;
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Hide scrollbar for cleaner look */
+.scroll-stack-scroller::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scroll-stack-scroller::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scroll-stack-scroller::-webkit-scrollbar-thumb {
+  background: var(--accent, #6c63ff);
+  border-radius: 10px;
+}
+
+.scroll-stack-scroller::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-border, #5a52d5);
 }
 
 .scroll-stack-inner {
-  padding: 20vh 5rem 50rem;
+  padding: 10vh 4rem 30rem;
   min-height: 100vh;
+  position: relative;
 }
 
 .scroll-stack-card-wrapper {
   position: relative;
+  margin-bottom: 20px;
 }
 
 .scroll-stack-card {
@@ -26,21 +48,41 @@
   will-change: transform, filter;
   backface-visibility: hidden;
   transform-style: preserve-3d;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-  height: 20rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+  height: auto;
+  min-height: 280px;
+  max-height: 400px;
   width: 100%;
-  margin: 30px 0;
-  padding: 3rem;
-  border-radius: 40px;
+  margin: 20px 0;
+  padding: 2.5rem;
+  border-radius: 30px;
   box-sizing: border-box;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
   position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), 
+              box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  background: var(--card-bg, #ffffff);
+  border: 1px solid var(--border, #e5e4e7);
 }
 
 .scroll-stack-card:hover {
-  box-shadow: 0 8px 40px rgba(108, 99, 255, 0.15);
+  box-shadow: 0 8px 40px rgba(108, 99, 255, 0.12);
+}
+
+.scroll-stack-card h3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--text-h, #08060d);
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+}
+
+.scroll-stack-card p {
+  font-size: 1rem;
+  color: var(--text, #6b6375);
+  line-height: 1.6;
+  margin: 0;
 }
 
 .scroll-stack-end {
@@ -48,69 +90,86 @@
   height: 1px;
 }
 
-/* ---------- Responsive ---------- */
+/* ---------- Responsive Breakpoints ---------- */
 
-/* TV (1921px+) */
+/* TV / Large Screens (1921px+) */
 @media (min-width: 1921px) {
   .scroll-stack-inner {
-    padding: 25vh 8rem 60rem;
+    padding: 12vh 8rem 40rem;
   }
   
   .scroll-stack-card {
-    height: 28rem;
-    margin: 40px 0;
+    min-height: 340px;
+    max-height: 480px;
     padding: 4rem;
-    border-radius: 50px;
+    border-radius: 40px;
+    margin: 30px 0;
+  }
+  
+  .scroll-stack-card h3 {
+    font-size: 2rem;
+  }
+  
+  .scroll-stack-card p {
+    font-size: 1.1rem;
   }
 }
 
 /* Large Desktop (1201px - 1920px) */
 @media (min-width: 1201px) and (max-width: 1920px) {
   .scroll-stack-inner {
-    padding: 22vh 6rem 55rem;
+    padding: 10vh 6rem 35rem;
   }
   
   .scroll-stack-card {
-    height: 22rem;
-    padding: 3.5rem;
-    border-radius: 45px;
+    min-height: 300px;
+    max-height: 420px;
+    padding: 3rem;
+    border-radius: 35px;
   }
 }
 
 /* Desktop (1025px - 1200px) */
 @media (min-width: 1025px) and (max-width: 1200px) {
   .scroll-stack-inner {
-    padding: 20vh 4rem 45rem;
+    padding: 10vh 4rem 30rem;
   }
   
   .scroll-stack-card {
-    height: 18rem;
+    min-height: 260px;
+    max-height: 380px;
     padding: 2.5rem;
-    border-radius: 35px;
-    margin: 25px 0;
+    border-radius: 30px;
+    margin: 18px 0;
+  }
+  
+  .scroll-stack-card h3 {
+    font-size: 1.4rem;
   }
 }
 
 /* Tablet (769px - 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
+  .scroll-stack-scroller {
+    height: 75vh;
+    overflow-y: auto;
+  }
+  
   .scroll-stack-inner {
-    padding: 15vh 3rem 35rem;
+    padding: 8vh 3rem 25rem;
     min-height: 80vh;
   }
   
-  .scroll-stack-scroller {
-    height: 80vh;
-  }
-  
   .scroll-stack-card {
-    height: 16rem;
+    min-height: 240px;
+    max-height: 340px;
     padding: 2rem;
-    border-radius: 30px;
-    margin: 20px 0;
+    border-radius: 25px;
+    margin: 16px 0;
   }
   
   .scroll-stack-card h3 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
   
   .scroll-stack-card p {
@@ -120,31 +179,33 @@
 
 /* Mobile (481px - 768px) */
 @media (min-width: 481px) and (max-width: 768px) {
+  .scroll-stack-scroller {
+    height: 70vh;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+  }
+  
   .scroll-stack-inner {
-    padding: 12vh 2rem 25rem;
+    padding: 6vh 1.5rem 20rem;
     min-height: 70vh;
   }
   
-  .scroll-stack-scroller {
-    height: 75vh;
-    -webkit-overflow-scrolling: touch;
-  }
-  
   .scroll-stack-card {
-    height: 14rem;
+    min-height: 200px;
+    max-height: 300px;
     padding: 1.5rem;
-    border-radius: 25px;
-    margin: 15px 0;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+    margin: 14px 0;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
   }
   
   .scroll-stack-card h3 {
-    font-size: 1.2rem;
-    margin-bottom: 6px;
+    font-size: 1.1rem;
+    margin-bottom: 4px;
   }
   
   .scroll-stack-card p {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     line-height: 1.5;
   }
   
@@ -155,22 +216,24 @@
 
 /* Small Mobile (320px - 480px) */
 @media (max-width: 480px) {
+  .scroll-stack-scroller {
+    height: 60vh;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+  }
+  
   .scroll-stack-inner {
-    padding: 8vh 1rem 15rem;
+    padding: 4vh 1rem 15rem;
     min-height: 60vh;
   }
   
-  .scroll-stack-scroller {
-    height: 65vh;
-    -webkit-overflow-scrolling: touch;
-  }
-  
   .scroll-stack-card {
-    height: 12rem;
-    padding: 1rem;
-    border-radius: 20px;
-    margin: 12px 0;
-    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+    min-height: 180px;
+    max-height: 260px;
+    padding: 1.2rem;
+    border-radius: 16px;
+    margin: 10px 0;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
   }
   
   .scroll-stack-card h3 {
@@ -179,7 +242,7 @@
   }
   
   .scroll-stack-card p {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     line-height: 1.4;
   }
   
@@ -194,50 +257,54 @@
 
 /* Landscape Mobile */
 @media (max-height: 600px) and (orientation: landscape) {
+  .scroll-stack-scroller {
+    height: 55vh;
+  }
+  
   .scroll-stack-inner {
-    padding: 5vh 2rem 20rem;
+    padding: 3vh 2rem 15rem;
     min-height: 50vh;
   }
   
-  .scroll-stack-scroller {
-    height: 60vh;
-  }
-  
   .scroll-stack-card {
-    height: 10rem;
+    min-height: 160px;
+    max-height: 220px;
     padding: 1rem;
-    border-radius: 20px;
-    margin: 10px 0;
+    border-radius: 16px;
+    margin: 8px 0;
   }
   
   .scroll-stack-card h3 {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
   
   .scroll-stack-card p {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
   }
 }
 
-/* High DPI / Retina screens */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .scroll-stack-card {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-}
-
-/* Dark mode support */
+/* ---------- Dark Mode ---------- */
 @media (prefers-color-scheme: dark) {
   .scroll-stack-card {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
     border: 1px solid rgba(255, 255, 255, 0.05);
+    background: var(--bg, #16171d);
   }
   
   .scroll-stack-card:hover {
-    box-shadow: 0 8px 40px rgba(108, 99, 255, 0.2);
+    box-shadow: 0 8px 40px rgba(108, 99, 255, 0.15);
+  }
+  
+  .scroll-stack-card h3 {
+    color: var(--text-h, #f3f4f6);
+  }
+  
+  .scroll-stack-card p {
+    color: var(--text, #9ca3af);
   }
 }
+
+/* ---------- Accessibility ---------- */
 
 /* Reduce motion preference */
 @media (prefers-reduced-motion: reduce) {
@@ -246,7 +313,7 @@
   }
   
   .scroll-stack-card {
-    transition: none;
+    transition: none !important;
   }
 }
 
@@ -255,6 +322,7 @@
   .scroll-stack-scroller {
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
+    overflow-y: auto;
   }
   
   .scroll-stack-card {
@@ -267,6 +335,7 @@
   .scroll-stack-scroller {
     height: auto;
     overflow: visible;
+    -webkit-overflow-scrolling: auto;
   }
   
   .scroll-stack-inner {
@@ -281,6 +350,8 @@
     border: 1px solid #ddd;
     margin: 10px 0;
     height: auto;
-    min-height: 100px;
+    min-height: auto;
+    max-height: none;
+    padding: 20px;
   }
 }
