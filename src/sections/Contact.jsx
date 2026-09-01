@@ -137,7 +137,7 @@ const Contact = ({ theme }) => {
               </div>
               <div>
                 <h4 style={{ color: 'var(--text-primary)', marginBottom: '4px' }}>Name</h4>
-                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>John Doe</p>
+                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}></p>
               </div>
             </div>
 
@@ -162,7 +162,7 @@ const Contact = ({ theme }) => {
               </div>
               <div>
                 <h4 style={{ color: 'var(--text-primary)', marginBottom: '4px' }}>Email</h4>
-                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>john.doe@example.com</p>
+                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}></p>
               </div>
             </div>
 
@@ -187,7 +187,7 @@ const Contact = ({ theme }) => {
               </div>
               <div>
                 <h4 style={{ color: 'var(--text-primary)', marginBottom: '4px' }}>Phone</h4>
-                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>+91-XXXXX-XXXXX</p>
+                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>+91-XXXXX-XXXX</p>
               </div>
             </div>
 
