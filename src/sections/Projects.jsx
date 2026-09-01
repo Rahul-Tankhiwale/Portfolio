@@ -8,7 +8,7 @@ const projectsData = [
     tech: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Chart.js', 'Recharts'],
     github: 'https://github.com/rahul-tankhiwale/expense-tracker',
     demo: 'https://test-folder-two.vercel.app/login',
-    image: '💰',
+    image: '',
     liveDemo: true
   },
   {
@@ -17,7 +17,7 @@ const projectsData = [
     tech: ['React.js', 'Tailwind CSS', 'Vite', 'LocalStorage', 'Framer Motion'],
     github: 'https://github.com/rahul-tankhiwale/taskflow',
     demo: 'https://task-flow-psi-lilac.vercel.app/',
-    image: '✅',
+    image: '',
     liveDemo: true
   },
   {
@@ -26,7 +26,7 @@ const projectsData = [
     tech: ['Machine Learning', 'Python', 'NLP', 'Knowledge Graphs', 'Document Processing'],
     github: '#',
     demo: '#',
-    image: '🧠',
+    image: '',
     liveDemo: false
   }
 ];
