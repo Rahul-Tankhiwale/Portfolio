@@ -10,13 +10,12 @@
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
   will-change: scroll-position;
-  scroll-behavior: smooth;
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Hide scrollbar for cleaner look */
+/* Custom Scrollbar */
 .scroll-stack-scroller::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 
 .scroll-stack-scroller::-webkit-scrollbar-track {
@@ -33,14 +32,14 @@
 }
 
 .scroll-stack-inner {
-  padding: 10vh 4rem 30rem;
+  padding: 5vh 2rem 30rem;
   min-height: 100vh;
   position: relative;
 }
 
 .scroll-stack-card-wrapper {
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .scroll-stack-card {
@@ -48,40 +47,40 @@
   will-change: transform, filter;
   backface-visibility: hidden;
   transform-style: preserve-3d;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
   height: auto;
-  min-height: 280px;
-  max-height: 400px;
+  min-height: 240px;
+  max-height: 380px;
   width: 100%;
-  margin: 20px 0;
-  padding: 2.5rem;
-  border-radius: 30px;
+  margin: 15px 0;
+  padding: 2rem;
+  border-radius: 24px;
   box-sizing: border-box;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
   position: relative;
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), 
-              box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   background: var(--card-bg, #ffffff);
   border: 1px solid var(--border, #e5e4e7);
 }
 
 .scroll-stack-card:hover {
-  box-shadow: 0 8px 40px rgba(108, 99, 255, 0.12);
+  box-shadow: 0 8px 32px rgba(108, 99, 255, 0.1);
 }
 
 .scroll-stack-card h3 {
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   font-weight: 600;
   color: var(--text-h, #08060d);
-  margin: 0 0 8px 0;
+  margin: 0 0 6px 0;
   line-height: 1.2;
 }
 
 .scroll-stack-card p {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--text, #6b6375);
-  line-height: 1.6;
+  line-height: 1.5;
   margin: 0;
 }
 
@@ -90,61 +89,62 @@
   height: 1px;
 }
 
-/* ---------- Responsive Breakpoints ---------- */
+/* ---------- Responsive ---------- */
 
-/* TV / Large Screens (1921px+) */
+/* TV (1921px+) */
 @media (min-width: 1921px) {
   .scroll-stack-inner {
-    padding: 12vh 8rem 40rem;
+    padding: 8vh 6rem 40rem;
   }
   
   .scroll-stack-card {
-    min-height: 340px;
-    max-height: 480px;
-    padding: 4rem;
-    border-radius: 40px;
-    margin: 30px 0;
+    min-height: 320px;
+    max-height: 460px;
+    padding: 3.5rem;
+    border-radius: 36px;
+    margin: 25px 0;
   }
   
   .scroll-stack-card h3 {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
   
   .scroll-stack-card p {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
   }
 }
 
 /* Large Desktop (1201px - 1920px) */
 @media (min-width: 1201px) and (max-width: 1920px) {
   .scroll-stack-inner {
-    padding: 10vh 6rem 35rem;
+    padding: 6vh 4rem 35rem;
   }
   
   .scroll-stack-card {
-    min-height: 300px;
-    max-height: 420px;
-    padding: 3rem;
-    border-radius: 35px;
+    min-height: 280px;
+    max-height: 400px;
+    padding: 2.8rem;
+    border-radius: 30px;
+    margin: 20px 0;
   }
 }
 
 /* Desktop (1025px - 1200px) */
 @media (min-width: 1025px) and (max-width: 1200px) {
   .scroll-stack-inner {
-    padding: 10vh 4rem 30rem;
+    padding: 5vh 3rem 30rem;
   }
   
   .scroll-stack-card {
-    min-height: 260px;
-    max-height: 380px;
-    padding: 2.5rem;
-    border-radius: 30px;
+    min-height: 250px;
+    max-height: 360px;
+    padding: 2.2rem;
+    border-radius: 26px;
     margin: 18px 0;
   }
   
   .scroll-stack-card h3 {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
 }
 
@@ -156,83 +156,46 @@
   }
   
   .scroll-stack-inner {
-    padding: 8vh 3rem 25rem;
+    padding: 4vh 2rem 25rem;
     min-height: 80vh;
   }
   
   .scroll-stack-card {
-    min-height: 240px;
-    max-height: 340px;
-    padding: 2rem;
-    border-radius: 25px;
+    min-height: 220px;
+    max-height: 320px;
+    padding: 1.8rem;
+    border-radius: 22px;
     margin: 16px 0;
   }
   
   .scroll-stack-card h3 {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
   
   .scroll-stack-card p {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 }
 
 /* Mobile (481px - 768px) */
 @media (min-width: 481px) and (max-width: 768px) {
   .scroll-stack-scroller {
-    height: 70vh;
+    height: 65vh;
     -webkit-overflow-scrolling: touch;
     overflow-y: auto;
   }
   
   .scroll-stack-inner {
-    padding: 6vh 1.5rem 20rem;
+    padding: 3vh 1.2rem 20rem;
     min-height: 70vh;
   }
   
   .scroll-stack-card {
-    min-height: 200px;
-    max-height: 300px;
-    padding: 1.5rem;
-    border-radius: 20px;
-    margin: 14px 0;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
-  }
-  
-  .scroll-stack-card h3 {
-    font-size: 1.1rem;
-    margin-bottom: 4px;
-  }
-  
-  .scroll-stack-card p {
-    font-size: 0.9rem;
-    line-height: 1.5;
-  }
-  
-  .scroll-stack-end {
-    height: 2px;
-  }
-}
-
-/* Small Mobile (320px - 480px) */
-@media (max-width: 480px) {
-  .scroll-stack-scroller {
-    height: 60vh;
-    -webkit-overflow-scrolling: touch;
-    overflow-y: auto;
-  }
-  
-  .scroll-stack-inner {
-    padding: 4vh 1rem 15rem;
-    min-height: 60vh;
-  }
-  
-  .scroll-stack-card {
-    min-height: 180px;
-    max-height: 260px;
-    padding: 1.2rem;
-    border-radius: 16px;
-    margin: 10px 0;
+    min-height: 190px;
+    max-height: 280px;
+    padding: 1.4rem;
+    border-radius: 18px;
+    margin: 12px 0;
     box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
   }
   
@@ -243,6 +206,43 @@
   
   .scroll-stack-card p {
     font-size: 0.85rem;
+    line-height: 1.4;
+  }
+  
+  .scroll-stack-end {
+    height: 2px;
+  }
+}
+
+/* Small Mobile (320px - 480px) */
+@media (max-width: 480px) {
+  .scroll-stack-scroller {
+    height: 55vh;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+  }
+  
+  .scroll-stack-inner {
+    padding: 2vh 0.8rem 15rem;
+    min-height: 60vh;
+  }
+  
+  .scroll-stack-card {
+    min-height: 170px;
+    max-height: 250px;
+    padding: 1rem;
+    border-radius: 14px;
+    margin: 10px 0;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  }
+  
+  .scroll-stack-card h3 {
+    font-size: 0.95rem;
+    margin-bottom: 3px;
+  }
+  
+  .scroll-stack-card p {
+    font-size: 0.8rem;
     line-height: 1.4;
   }
   
@@ -258,41 +258,41 @@
 /* Landscape Mobile */
 @media (max-height: 600px) and (orientation: landscape) {
   .scroll-stack-scroller {
-    height: 55vh;
+    height: 50vh;
   }
   
   .scroll-stack-inner {
-    padding: 3vh 2rem 15rem;
+    padding: 2vh 1.5rem 12rem;
     min-height: 50vh;
   }
   
   .scroll-stack-card {
-    min-height: 160px;
-    max-height: 220px;
-    padding: 1rem;
-    border-radius: 16px;
+    min-height: 150px;
+    max-height: 200px;
+    padding: 0.8rem;
+    border-radius: 14px;
     margin: 8px 0;
   }
   
   .scroll-stack-card h3 {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
   
   .scroll-stack-card p {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
   }
 }
 
 /* ---------- Dark Mode ---------- */
 @media (prefers-color-scheme: dark) {
   .scroll-stack-card {
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.05);
     background: var(--bg, #16171d);
   }
   
   .scroll-stack-card:hover {
-    box-shadow: 0 8px 40px rgba(108, 99, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(108, 99, 255, 0.12);
   }
   
   .scroll-stack-card h3 {
@@ -326,7 +326,7 @@
   }
   
   .scroll-stack-card {
-    transition: transform 0.2s ease;
+    transition: transform 0.15s ease;
   }
 }
 
@@ -352,6 +352,6 @@
     height: auto;
     min-height: auto;
     max-height: none;
-    padding: 20px;
+    padding: 16px;
   }
 }
