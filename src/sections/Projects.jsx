@@ -94,7 +94,7 @@ const Projects = ({ theme }) => {
                     color: '#6c63ff',
                     border: '1px solid #6c63ff40'
                   }}>
-                    Live Demo
+                    
                   </span>
                 )}
               </div>
