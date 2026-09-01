@@ -149,7 +149,6 @@ const Hero = ({ theme, toggleTheme }) => {
           <span style={{ color: 'var(--accent)' }}>✦</span>
           <span style={{ position: 'relative' }}>
             {isHovering ? (
-              // Show RotatingText on hover
               <RotatingText
                 texts={roles}
                 mainClassName="justify-center"
@@ -162,7 +161,6 @@ const Hero = ({ theme, toggleTheme }) => {
                 rotationInterval={1500}
               />
             ) : (
-              // Show typing effect
               <span style={{ position: 'relative' }}>
                 {displayText}
                 <span style={{
@@ -370,7 +368,6 @@ const Hero = ({ theme, toggleTheme }) => {
         </motion.div>
       </div>
 
-      {/* Add cursor blink animation */}
       <style>{`
         @keyframes blink {
           0%, 50% { opacity: 1; }
