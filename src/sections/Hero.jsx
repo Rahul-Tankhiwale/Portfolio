@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import RotatingText from '../components/RotatingText/RotatingText';
+import Hyperspeed from '../components/Hyperspeed/Hyperspeed';
 import { FaGithub, FaLinkedin, FaTwitter, FaSun, FaMoon, FaEnvelope, FaPhone, FaMapMarkerAlt, FaDownload } from 'react-icons/fa';
 import { motion } from 'motion/react';
 
@@ -8,6 +9,7 @@ const Hero = ({ theme, toggleTheme }) => {
   const [textIndex, setTextIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
+  const isDark = theme === 'dark';
 
   const roles = [
     'Full Stack Web Developer',
@@ -50,66 +52,78 @@ const Hero = ({ theme, toggleTheme }) => {
   return (
     <section id="hero" style={{
       minHeight: '100vh',
+      minHeight: '100svh',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: '80px 40px',
+      padding: '80px 20px',
       position: 'relative',
-      zIndex: 2
+      zIndex: 2,
+      overflow: 'hidden',
+      background: isDark ? 'rgba(10,10,10,0.7)' : 'rgba(245,245,245,0.85)',
+      backdropFilter: 'blur(2px)',
+      width: '100%'
     }}>
+      {/* Hyperspeed Background - Only visible in dark mode */}
+      <Hyperspeed isVisible={isDark} />
+
+      {/* Theme Toggle */}
+      <motion.button
+        onClick={toggleTheme}
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+        style={{
+          position: 'fixed',
+          top: '20px',
+          right: '20px',
+          zIndex: 1000,
+          background: 'var(--card-bg)',
+          border: '1px solid var(--card-border)',
+          borderRadius: '50%',
+          width: '50px',
+          height: '50px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          cursor: 'pointer',
+          fontSize: '24px',
+          color: 'var(--text-primary)',
+          transition: 'all 0.3s ease',
+          boxShadow: 'var(--shadow)'
+        }}
+        whileHover={{ scale: 1.1, rotate: 180 }}
+        whileTap={{ scale: 0.9 }}
+      >
+        {theme === 'dark' ? <FaSun /> : <FaMoon />}
+      </motion.button>
+
       <div className="container" style={{
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         textAlign: 'center',
-        maxWidth: '900px'
+        maxWidth: '900px',
+        position: 'relative',
+        zIndex: 1,
+        padding: '0 15px'
       }}>
-        {/* Theme Toggle */}
-        <motion.button
-          onClick={toggleTheme}
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          style={{
-            position: 'fixed',
-            top: '20px',
-            right: '20px',
-            zIndex: 1000,
-            background: 'var(--card-bg)',
-            border: '1px solid var(--card-border)',
-            borderRadius: '50%',
-            width: '50px',
-            height: '50px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            cursor: 'pointer',
-            fontSize: '24px',
-            color: 'var(--text-primary)',
-            transition: 'all 0.3s ease',
-            boxShadow: 'var(--shadow)'
-          }}
-          whileHover={{ scale: 1.1, rotate: 180 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          {theme === 'dark' ? <FaSun /> : <FaMoon />}
-        </motion.button>
-
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
           <h1 style={{
-            fontSize: 'clamp(2.5rem, 8vw, 5rem)',
+            fontSize: 'clamp(2.2rem, 8vw, 5rem)',
             fontWeight: '800',
             marginBottom: '10px',
             color: 'var(--text-primary)',
-            lineHeight: '1.1'
+            lineHeight: '1.1',
+            letterSpacing: '-0.02em'
           }}>
-            Hii, I'm
+            Hi, I'm
             <br />
-            <span style={{ color: '#6c63ff' }}>Rahul Tankhiwale</span>
+            <span style={{ color: 'var(--accent)' }}>Rahul Tankhiwale</span>
           </h1>
         </motion.div>
 
@@ -119,19 +133,20 @@ const Hero = ({ theme, toggleTheme }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
           style={{
-            fontSize: 'clamp(1.2rem, 3vw, 2rem)',
+            fontSize: 'clamp(1.1rem, 3vw, 2rem)',
             marginBottom: '20px',
             color: 'var(--text-secondary)',
-            minHeight: '70px',
+            minHeight: 'clamp(50px, 8vh, 70px)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: '8px'
+            gap: '8px',
+            flexWrap: 'wrap'
           }}
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
         >
-          <span style={{ color: '#6c63ff' }}>✦</span>
+          <span style={{ color: 'var(--accent)' }}>✦</span>
           <span style={{ position: 'relative' }}>
             {isHovering ? (
               // Show RotatingText on hover
@@ -154,7 +169,7 @@ const Hero = ({ theme, toggleTheme }) => {
                   display: 'inline-block',
                   width: '3px',
                   height: '1.2em',
-                  backgroundColor: '#6c63ff',
+                  backgroundColor: 'var(--accent)',
                   marginLeft: '2px',
                   animation: 'blink 0.7s infinite'
                 }} />
@@ -168,11 +183,12 @@ const Hero = ({ theme, toggleTheme }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
           style={{
-            fontSize: '1.1rem',
+            fontSize: 'clamp(0.95rem, 1.1vw, 1.1rem)',
             color: 'var(--text-secondary)',
             maxWidth: '700px',
             marginBottom: '30px',
-            lineHeight: '1.8'
+            lineHeight: '1.8',
+            padding: '0 10px'
           }}
         >
           Results-driven Full Stack Web Developer with experience in designing, developing, testing, and maintaining 
@@ -188,35 +204,55 @@ const Hero = ({ theme, toggleTheme }) => {
           style={{
             display: 'flex',
             flexWrap: 'wrap',
-            gap: '15px',
+            gap: '12px',
             justifyContent: 'center',
             marginBottom: '30px',
-            padding: '15px 25px',
+            padding: '12px 20px',
             borderRadius: '16px',
             width: '100%',
-            maxWidth: '750px'
+            maxWidth: '750px',
+            background: isDark ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.02)',
+            border: `1px solid ${isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)'}`
           }}
         >
           <motion.div 
-            style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-secondary)' }}
+            style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '8px', 
+              color: 'var(--text-secondary)',
+              fontSize: 'clamp(0.8rem, 0.9vw, 0.9rem)'
+            }}
             whileHover={{ scale: 1.05 }}
           >
-            <FaEnvelope style={{ color: '#6c63ff' }} />
-            <span style={{ fontSize: '0.9rem' }}>rahultankhiwale14@gmail.com</span>
+            <FaEnvelope style={{ color: 'var(--accent)' }} />
+            <span>rahultankhiwale14@gmail.com</span>
           </motion.div>
           <motion.div 
-            style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-secondary)' }}
+            style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '8px', 
+              color: 'var(--text-secondary)',
+              fontSize: 'clamp(0.8rem, 0.9vw, 0.9rem)'
+            }}
             whileHover={{ scale: 1.05 }}
           >
-            <FaPhone style={{ color: '#6c63ff' }} />
-            <span style={{ fontSize: '0.9rem' }}>+91-7875398831</span>
+            <FaPhone style={{ color: 'var(--accent)' }} />
+            <span>+91-7875398831</span>
           </motion.div>
           <motion.div 
-            style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-secondary)' }}
+            style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '8px', 
+              color: 'var(--text-secondary)',
+              fontSize: 'clamp(0.8rem, 0.9vw, 0.9rem)'
+            }}
             whileHover={{ scale: 1.05 }}
           >
-            <FaMapMarkerAlt style={{ color: '#6c63ff' }} />
-            <span style={{ fontSize: '0.9rem' }}>Pune, Maharashtra</span>
+            <FaMapMarkerAlt style={{ color: 'var(--accent)' }} />
+            <span>Pune, Maharashtra</span>
           </motion.div>
         </motion.div>
 
@@ -226,9 +262,11 @@ const Hero = ({ theme, toggleTheme }) => {
           transition={{ delay: 0.9, duration: 0.8 }}
           style={{
             display: 'flex',
-            gap: '16px',
+            gap: '12px',
             flexWrap: 'wrap',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            width: '100%',
+            maxWidth: '600px'
           }}
         >
           <motion.button 
@@ -236,6 +274,10 @@ const Hero = ({ theme, toggleTheme }) => {
             className="btn-primary"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            style={{
+              flex: '1 1 auto',
+              minWidth: '140px'
+            }}
           >
             View My Work
           </motion.button>
@@ -244,19 +286,26 @@ const Hero = ({ theme, toggleTheme }) => {
             className="btn-secondary"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            style={{
+              flex: '1 1 auto',
+              minWidth: '140px'
+            }}
           >
             Get In Touch
           </motion.button>
           <motion.a 
             href="https://drive.google.com/file/d/1OGuVOPQxfaw0JZ0l37mn1cz7_ElfJDg_/view?usp=sharing" 
-            download
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-secondary"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '8px'
+              gap: '8px',
+              flex: '1 1 auto',
+              minWidth: '140px'
             }}
           >
             <FaDownload size={16} />
@@ -271,15 +320,21 @@ const Hero = ({ theme, toggleTheme }) => {
           style={{
             display: 'flex',
             gap: '24px',
-            marginTop: '40px'
+            marginTop: '40px',
+            flexWrap: 'wrap',
+            justifyContent: 'center'
           }}
         >
           <motion.a 
             href="https://github.com/rahul-tankhiwale" 
             target="_blank" 
             rel="noopener noreferrer"
-            style={{ color: 'var(--text-secondary)', fontSize: '28px', transition: 'color 0.3s' }}
-            whileHover={{ scale: 1.2, color: '#6c63ff' }}
+            style={{ 
+              color: 'var(--text-secondary)', 
+              fontSize: 'clamp(24px, 3vw, 28px)', 
+              transition: 'color 0.3s' 
+            }}
+            whileHover={{ scale: 1.2, color: 'var(--accent)' }}
             whileTap={{ scale: 0.9 }}
           >
             <FaGithub />
@@ -288,8 +343,12 @@ const Hero = ({ theme, toggleTheme }) => {
             href="https://www.linkedin.com/in/rahul-tankhiwale-5a91b9213" 
             target="_blank" 
             rel="noopener noreferrer"
-            style={{ color: 'var(--text-secondary)', fontSize: '28px', transition: 'color 0.3s' }}
-            whileHover={{ scale: 1.2, color: '#6c63ff' }}
+            style={{ 
+              color: 'var(--text-secondary)', 
+              fontSize: 'clamp(24px, 3vw, 28px)', 
+              transition: 'color 0.3s' 
+            }}
+            whileHover={{ scale: 1.2, color: 'var(--accent)' }}
             whileTap={{ scale: 0.9 }}
           >
             <FaLinkedin />
@@ -298,8 +357,12 @@ const Hero = ({ theme, toggleTheme }) => {
             href="#" 
             target="_blank" 
             rel="noopener noreferrer"
-            style={{ color: 'var(--text-secondary)', fontSize: '28px', transition: 'color 0.3s' }}
-            whileHover={{ scale: 1.2, color: '#6c63ff' }}
+            style={{ 
+              color: 'var(--text-secondary)', 
+              fontSize: 'clamp(24px, 3vw, 28px)', 
+              transition: 'color 0.3s' 
+            }}
+            whileHover={{ scale: 1.2, color: 'var(--accent)' }}
             whileTap={{ scale: 0.9 }}
           >
             <FaTwitter />
@@ -312,6 +375,11 @@ const Hero = ({ theme, toggleTheme }) => {
         @keyframes blink {
           0%, 50% { opacity: 1; }
           51%, 100% { opacity: 0; }
+        }
+        
+        @keyframes pulse {
+          0%, 100% { transform: scale(1); opacity: 0.6; }
+          50% { transform: scale(1.05); opacity: 1; }
         }
       `}</style>
     </section>
