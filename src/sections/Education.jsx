@@ -24,7 +24,7 @@ const educationData = [
       'Worked on ML-based Knowledge Graph creation from documents',
       'Active member of Publicity Team for college events'
     ],
-    icon: <FaGraduationCap size={36} />,
+    icon: <FaGraduationCap size={32} />,
     color: '#6c63ff'
   },
   {
@@ -39,7 +39,7 @@ const educationData = [
       'Participated in various science exhibitions',
       'Selected for inter-college science competitions'
     ],
-    icon: <FaSchool size={36} />,
+    icon: <FaSchool size={32} />,
     color: '#00b894'
   },
   {
@@ -54,7 +54,7 @@ const educationData = [
       'Strong foundation in Science and Mathematics',
       'Developed early interest in technology and computers'
     ],
-    icon: <FaBookOpen size={36} />,
+    icon: <FaBookOpen size={32} />,
     color: '#fdcb6e'
   }
 ];
@@ -99,22 +99,22 @@ const Education = ({ theme }) => {
         </motion.div>
 
         <div style={{
-          height: '70vh',
-          maxHeight: '700px',
-          minHeight: '400px',
+          height: '65vh',
+          maxHeight: '650px',
+          minHeight: '350px',
           width: '100%',
           marginTop: '20px',
           position: 'relative'
         }}>
           <ScrollStack
-            itemDistance={80}
-            itemScale={0.02}
-            itemStackDistance={20}
-            stackPosition="25%"
-            scaleEndPosition="15%"
-            baseScale={0.88}
-            rotationAmount={0.3}
-            blurAmount={1.5}
+            itemDistance={50}
+            itemScale={0.015}
+            itemStackDistance={15}
+            stackPosition="30%"
+            scaleEndPosition="20%"
+            baseScale={0.9}
+            rotationAmount={0.2}
+            blurAmount={1}
           >
             {educationData.map((edu, index) => (
               <ScrollStackItem key={index}>
@@ -126,86 +126,75 @@ const Education = ({ theme }) => {
                     display: 'flex',
                     flexDirection: 'column',
                     height: '100%',
-                    minHeight: '220px',
+                    minHeight: '200px',
                     background: theme === 'dark' ? '#1f2028' : '#ffffff',
-                    borderRadius: '30px',
-                    padding: 'clamp(20px, 3vw, 35px)',
+                    borderRadius: '24px',
+                    padding: 'clamp(16px, 2.5vw, 28px)',
                     border: `2px solid ${edu.color}30`,
                     boxShadow: 'var(--shadow)',
                     position: 'relative',
-                    overflow: 'hidden',
-                    transition: 'all 0.3s ease'
+                    overflow: 'hidden'
                   }}
                 >
                   {/* Decorative gradient */}
                   <div style={{
                     position: 'absolute',
-                    top: '-40%',
-                    right: '-20%',
-                    width: '200px',
-                    height: '200px',
+                    top: '-30%',
+                    right: '-15%',
+                    width: '150px',
+                    height: '150px',
                     borderRadius: '50%',
-                    background: `${edu.color}08`,
+                    background: `${edu.color}06`,
                     pointerEvents: 'none'
                   }} />
 
                   {/* Header */}
                   <div style={{
                     display: 'flex',
-                    alignItems: 'flex-start',
-                    justifyContent: 'space-between',
-                    marginBottom: '12px',
+                    alignItems: 'center',
+                    gap: '12px',
+                    marginBottom: '10px',
                     position: 'relative',
-                    zIndex: 1,
-                    flexWrap: 'wrap',
-                    gap: '10px'
+                    zIndex: 1
                   }}>
                     <div style={{
+                      width: 'clamp(40px, 4vw, 48px)',
+                      height: 'clamp(40px, 4vw, 48px)',
+                      borderRadius: '12px',
+                      background: `${edu.color}20`,
                       display: 'flex',
                       alignItems: 'center',
-                      gap: '14px',
-                      flex: 1,
-                      minWidth: '200px'
+                      justifyContent: 'center',
+                      color: edu.color,
+                      fontSize: 'clamp(18px, 2vw, 24px)',
+                      flexShrink: 0
                     }}>
-                      <div style={{
-                        width: 'clamp(44px, 5vw, 56px)',
-                        height: 'clamp(44px, 5vw, 56px)',
-                        borderRadius: '14px',
-                        background: `${edu.color}20`,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: edu.color,
-                        fontSize: 'clamp(20px, 2.5vw, 28px)',
-                        flexShrink: 0
+                      {edu.icon}
+                    </div>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <h3 style={{
+                        fontSize: 'clamp(0.9rem, 1.2vw, 1.3rem)',
+                        fontWeight: '700',
+                        color: 'var(--text-h)',
+                        margin: 0,
+                        lineHeight: 1.2,
+                        wordBreak: 'break-word'
                       }}>
-                        {edu.icon}
-                      </div>
-                      <div style={{ flex: 1, minWidth: 0 }}>
-                        <h3 style={{
-                          fontSize: 'clamp(1rem, 1.4vw, 1.5rem)',
-                          fontWeight: '700',
-                          color: 'var(--text-h)',
-                          margin: 0,
-                          lineHeight: 1.2,
-                          wordBreak: 'break-word'
-                        }}>
-                          {edu.institution}
-                        </h3>
-                        <span style={{
-                          display: 'inline-block',
-                          padding: '2px 12px',
-                          borderRadius: '16px',
-                          fontSize: '0.7rem',
-                          fontWeight: '600',
-                          background: `${edu.color}20`,
-                          color: edu.color,
-                          border: `1px solid ${edu.color}30`,
-                          marginTop: '4px'
-                        }}>
-                          {edu.type === 'university' ? 'University' : edu.type === 'college' ? 'College' : 'School'}
-                        </span>
-                      </div>
+                        {edu.institution}
+                      </h3>
+                      <span style={{
+                        display: 'inline-block',
+                        padding: '2px 10px',
+                        borderRadius: '12px',
+                        fontSize: '0.65rem',
+                        fontWeight: '600',
+                        background: `${edu.color}20`,
+                        color: edu.color,
+                        border: `1px solid ${edu.color}30`,
+                        marginTop: '3px'
+                      }}>
+                        {edu.type === 'university' ? 'University' : edu.type === 'college' ? 'College' : 'School'}
+                      </span>
                     </div>
                   </div>
 
@@ -216,10 +205,10 @@ const Education = ({ theme }) => {
                     zIndex: 1,
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: '8px'
+                    gap: '6px'
                   }}>
                     <h4 style={{
-                      fontSize: 'clamp(0.95rem, 1.2vw, 1.2rem)',
+                      fontSize: 'clamp(0.85rem, 1vw, 1.05rem)',
                       fontWeight: '600',
                       color: 'var(--text-secondary)',
                       margin: 0
@@ -230,27 +219,27 @@ const Education = ({ theme }) => {
                     <div style={{
                       display: 'flex',
                       flexWrap: 'wrap',
-                      gap: '12px',
-                      marginBottom: '8px'
+                      gap: '10px',
+                      marginBottom: '6px'
                     }}>
                       <div style={{
                         display: 'flex',
                         alignItems: 'center',
-                        gap: '6px',
+                        gap: '5px',
                         color: 'var(--text-secondary)',
-                        fontSize: 'clamp(0.8rem, 0.9vw, 0.95rem)'
+                        fontSize: 'clamp(0.7rem, 0.8vw, 0.85rem)'
                       }}>
-                        <FaCalendarAlt style={{ color: edu.color, fontSize: '14px' }} />
+                        <FaCalendarAlt style={{ color: edu.color, fontSize: '12px' }} />
                         <span>{edu.period}</span>
                       </div>
                       <div style={{
                         display: 'flex',
                         alignItems: 'center',
-                        gap: '6px',
+                        gap: '5px',
                         color: 'var(--text-secondary)',
-                        fontSize: 'clamp(0.8rem, 0.9vw, 0.95rem)'
+                        fontSize: 'clamp(0.7rem, 0.8vw, 0.85rem)'
                       }}>
-                        <FaMapMarkerAlt style={{ color: edu.color, fontSize: '14px' }} />
+                        <FaMapMarkerAlt style={{ color: edu.color, fontSize: '12px' }} />
                         <span>{edu.location}</span>
                       </div>
                     </div>
@@ -259,46 +248,46 @@ const Education = ({ theme }) => {
                     <div style={{
                       display: 'inline-flex',
                       alignItems: 'center',
-                      gap: '10px',
-                      padding: '4px 16px',
-                      borderRadius: '10px',
-                      background: `${edu.color}12`,
+                      gap: '8px',
+                      padding: '3px 14px',
+                      borderRadius: '8px',
+                      background: `${edu.color}10`,
                       border: `1px solid ${edu.color}20`,
                       width: 'fit-content',
-                      marginBottom: '8px'
+                      marginBottom: '6px'
                     }}>
-                      <FaTrophy style={{ color: edu.color, fontSize: '16px' }} />
+                      <FaTrophy style={{ color: edu.color, fontSize: '14px' }} />
                       <span style={{
                         fontWeight: '700',
-                        fontSize: 'clamp(0.95rem, 1vw, 1.1rem)',
+                        fontSize: 'clamp(0.85rem, 0.9vw, 1rem)',
                         color: 'var(--text-h)'
                       }}>
                         {edu.cgpa || edu.percentage || '90%+'}
                       </span>
                       <span style={{
                         color: 'var(--text-secondary)',
-                        fontSize: '0.75rem'
+                        fontSize: '0.65rem'
                       }}>
                         {edu.cgpa ? 'CGPA' : edu.percentage ? 'Percentage' : 'Grade'}
                       </span>
                     </div>
 
-                    {/* Achievements */}
+                    {/* Achievements - Simplified for mobile */}
                     {edu.achievements && edu.achievements.length > 0 && (
                       <div style={{
-                        marginTop: '4px',
+                        marginTop: '2px',
                         display: 'block'
                       }}>
                         <div style={{
                           display: 'flex',
                           alignItems: 'center',
-                          gap: '6px',
-                          marginBottom: '4px',
+                          gap: '5px',
+                          marginBottom: '3px',
                           color: 'var(--text-secondary)',
-                          fontSize: '0.85rem',
+                          fontSize: '0.75rem',
                           fontWeight: '600'
                         }}>
-                          <FaAward style={{ color: edu.color, fontSize: '14px' }} />
+                          <FaAward style={{ color: edu.color, fontSize: '12px' }} />
                           <span>Key Achievements</span>
                         </div>
                         <ul style={{
@@ -309,21 +298,21 @@ const Education = ({ theme }) => {
                           flexDirection: 'column',
                           gap: '2px'
                         }}>
-                          {edu.achievements.map((achievement, i) => (
+                          {edu.achievements.slice(0, 2).map((achievement, i) => (
                             <li
                               key={i}
                               style={{
                                 display: 'flex',
                                 alignItems: 'center',
-                                gap: '8px',
+                                gap: '6px',
                                 color: 'var(--text-secondary)',
-                                fontSize: 'clamp(0.7rem, 0.8vw, 0.85rem)',
-                                padding: '2px 0'
+                                fontSize: 'clamp(0.65rem, 0.7vw, 0.8rem)',
+                                padding: '1px 0'
                               }}
                             >
                               <span style={{
-                                width: '5px',
-                                height: '5px',
+                                width: '4px',
+                                height: '4px',
                                 borderRadius: '50%',
                                 background: edu.color,
                                 display: 'inline-block',
@@ -340,10 +329,10 @@ const Education = ({ theme }) => {
                   {/* Decorative emoji */}
                   <div style={{
                     position: 'absolute',
-                    bottom: '-20px',
-                    right: '-20px',
-                    fontSize: 'clamp(60px, 8vw, 100px)',
-                    opacity: 0.05,
+                    bottom: '-15px',
+                    right: '-15px',
+                    fontSize: 'clamp(50px, 6vw, 80px)',
+                    opacity: 0.04,
                     color: edu.color,
                     pointerEvents: 'none'
                   }}>
