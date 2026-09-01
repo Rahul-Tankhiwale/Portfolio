@@ -41,9 +41,7 @@ const Projects = ({ theme }) => {
     }}>
       <div className="container">
         <h2 className="section-title">Projects</h2>
-        <p className="section-subtitle">
-          Here are some of the projects I've worked on
-        </p>
+       
 
         <div style={{
           display: 'grid',
