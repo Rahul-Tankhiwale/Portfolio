@@ -145,9 +145,7 @@ const Skills = ({ theme }) => {
     }}>
       <div className="container">
         <h2 className="section-title">Technical Skills</h2>
-        <p className="section-subtitle">
-          Technologies and tools I work with to build scalable web applications
-        </p>
+       
 
         {/* Category Filter */}
         <div style={{
