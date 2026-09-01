@@ -94,7 +94,7 @@ const Education = ({ theme }) => {
             maxWidth: '600px',
             margin: '0 auto'
           }}>
-            My academic journey and achievements
+          
           </p>
         </motion.div>
 
