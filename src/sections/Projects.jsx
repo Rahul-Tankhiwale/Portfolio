@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaGithub, FaExternalLinkAlt, FaLink } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 const projectsData = [
   {
@@ -84,19 +84,7 @@ const Projects = ({ theme }) => {
                 }}>
                   {project.image}
                 </div>
-                {project.liveDemo && (
-                  <span style={{
-                    padding: '4px 12px',
-                    borderRadius: '20px',
-                    fontSize: '0.7rem',
-                    fontWeight: '600',
-                    background: '#6c63ff20',
-                    color: '#6c63ff',
-                    border: '1px solid #6c63ff40'
-                  }}>
-                    
-                  </span>
-                )}
+                {/* Live Demo badge removed entirely */}
               </div>
               <h3 style={{
                 fontSize: '1.5rem',
