@@ -9,15 +9,15 @@ export const ScrollStackItem = ({ children, itemClassName = '' }) => (
 const ScrollStack = ({
   children,
   className = '',
-  itemDistance = 100,
-  itemScale = 0.03,
-  itemStackDistance = 30,
-  stackPosition = '20%',
-  scaleEndPosition = '10%',
-  baseScale = 0.85,
+  itemDistance = 80,
+  itemScale = 0.02,
+  itemStackDistance = 20,
+  stackPosition = '25%',
+  scaleEndPosition = '15%',
+  baseScale = 0.88,
   scaleDuration = 0.5,
-  rotationAmount = 0,
-  blurAmount = 0,
+  rotationAmount = 0.3,
+  blurAmount = 1.5,
   useWindowScroll = false,
   onStackComplete
 }) => {
