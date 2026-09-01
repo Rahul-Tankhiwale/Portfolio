@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Hyperspeed from '../components/Hyperspeed/Hyperspeed';
 import { FaEnvelope, FaMapMarkerAlt, FaPhone, FaGithub, FaLinkedin, FaTwitter, FaSpinner, FaUser, FaComment, FaUsers } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -14,6 +15,7 @@ const Contact = ({ theme }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState('');
   const [visitorCount, setVisitorCount] = useState(0);
+  const isDark = theme === 'dark';
 
   useEffect(() => {
     const getVisitorCount = () => {
@@ -81,14 +83,23 @@ const Contact = ({ theme }) => {
   return (
     <section id="contact" style={{
       minHeight: '100vh',
+      minHeight: '100svh',
       padding: '80px 20px',
-      background: theme === 'dark' ? 'var(--bg-primary)' : 'var(--bg-primary)',
+      position: 'relative',
+      overflow: 'hidden',
+      background: isDark ? 'rgba(10,10,10,0.7)' : 'rgba(245,245,245,0.85)',
+      backdropFilter: 'blur(2px)',
       width: '100%'
     }}>
+      {/* Hyperspeed Background - Only visible in dark mode */}
+      <Hyperspeed isVisible={isDark} />
+
       <div className="container" style={{
         maxWidth: '1200px',
         margin: '0 auto',
-        padding: '0 15px'
+        padding: '0 15px',
+        position: 'relative',
+        zIndex: 1
       }}>
         <motion.div
           initial={{ opacity: 0, y: -30 }}
@@ -96,8 +107,8 @@ const Contact = ({ theme }) => {
           transition={{ duration: 0.6 }}
           style={{ textAlign: 'center', marginBottom: '30px' }}
         >
-          <h2 className="section-title">Get In Touch</h2>
-          <p className="section-subtitle">
+          <h2 className="section-title" style={{ color: 'var(--text-h)' }}>Get In Touch</h2>
+          <p className="section-subtitle" style={{ color: 'var(--text-secondary)' }}>
             Have a project in mind? Let's work together and create something amazing.
           </p>
         </motion.div>
@@ -123,8 +134,8 @@ const Contact = ({ theme }) => {
             {/* Contact Items */}
             {[
               { icon: <FaUser />, label: 'Name', value: 'Rahul Tankhiwale' },
-              { icon: <FaEnvelope />, label: 'Email', value: 'rahultankhiwale5@gmail.com' },
-              { icon: <FaPhone />, label: 'Phone', value: '+91-XXXXX-XXXX' },
+              { icon: <FaEnvelope />, label: 'Email', value: 'rahultankhiwale14@gmail.com' },
+              { icon: <FaPhone />, label: 'Phone', value: '+91-7875398831' },
               { icon: <FaComment />, label: 'Message', value: "I'll respond within 24 hours" }
             ].map((item, index) => (
               <motion.div
@@ -424,6 +435,13 @@ const Contact = ({ theme }) => {
           </motion.form>
         </div>
       </div>
+
+      <style>{`
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+      `}</style>
     </section>
   );
 };
